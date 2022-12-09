@@ -1,0 +1,16 @@
+version: 2
+sources:
+  - name: DEVELOPER_DB
+    description: 
+    schema: ANJALI_SCHEMA
+    database: DEVELOPER_DB
+    tables:
+      - name: ACCOUNT
+      - name: CAMPAIGN
+      - name: CASE
+      - name: CONTACT
+      - name: CONTRACT
+      - name: LEAD
+      - name: ORDER
+      - name: PRODUCT_2
+      - name: OPPORTUNITY
