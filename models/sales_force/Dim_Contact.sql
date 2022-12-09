@@ -1,0 +1,4 @@
+{{ config(materialized='table') }}
+
+select distinct ID, NAME, MAILING_STREET, MAILING_CITY, MAILING_STATE, MAILING_POSTAL_CODE, MAILING_COUNTRY,PHONE, MOBILE_PHONE, EMAIL, _FIVETRAN_SYNCED as Load_Time
+ from {{source('DEVELOPER_DB','CONTACT')}}
