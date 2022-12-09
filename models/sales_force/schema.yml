@@ -1,7 +1,7 @@
 version: 2
 sources:
   - name: DEVELOPER_DB
-    description: 
+    description: <markdown_string>
     schema: ANJALI_SCHEMA
     database: DEVELOPER_DB
     tables:
