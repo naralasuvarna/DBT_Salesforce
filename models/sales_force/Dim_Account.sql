@@ -1,5 +1,6 @@
-{{ config(materialized='table') }}
+{{ config(materialized='incremental') }}
 
 select distinct ID, NAME, TYPE, BILLING_STREET, BILLING_CITY, BILLING_STATE, BILLING_POSTAL_CODE,BILLING_COUNTRY, SHIPPING_STREET, SHIPPING_CITY,
 SHIPPING_STATE, SHIPPING_POSTAL_CODE, SHIPPING_COUNTRY, INDUSTRY, OWNERSHIP, RATING, UPSELL_OPPORTUNITY_C, CUSTOMER_PRIORITY_C, ACTIVE_C,
 _FIVETRAN_SYNCED as Load_Time from {{source('DEVELOPER_DB','ACCOUNT')}}
+where date(CREATED_DATE)=date(current_timestamp) or date(LAST_MODIFIED_DATE)=date(current_timestamp) 

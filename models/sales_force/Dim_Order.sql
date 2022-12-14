@@ -1,4 +1,5 @@
-{{ config(materialized='table') }}
+{{ config(materialized='incremental') }}
 
 select distinct ID, STATUS, BILLING_STREET, BILLING_CITY, BILLING_STATE, BILLING_POSTAL_CODE, BILLING_COUNTRY,SHIPPING_STREET, SHIPPING_CITY, SHIPPING_STATE, 
 SHIPPING_POSTAL_CODE, SHIPPING_COUNTRY, _FIVETRAN_SYNCED as Load_Time from  "DEVELOPER_DB"."ANJALI_SCHEMA"."ORDER"
+ where date(CREATED_DATE)=date(current_timestamp) or date(LAST_MODIFIED_DATE)=date(current_timestamp) 
